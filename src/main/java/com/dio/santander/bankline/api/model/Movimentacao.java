@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "tab_movimentacao")
 public class Movimentacao {
@@ -36,6 +38,8 @@ public class Movimentacao {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	// Resolvendo bug de não aparecer data e hora no angular
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	public LocalDateTime getDataHora() {
 		return dataHora;
 	}
